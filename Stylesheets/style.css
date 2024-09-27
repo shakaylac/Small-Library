@@ -1,0 +1,33 @@
+body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 29rem;
+    height: 23rem;
+    border: 1px solid grey;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgrey;
+    padding: 2rem;
+    width: 15rem;
+    position: absolute;
+    z-index: 2;
+    top: 6rem;
+    right: 14.5rem;
+}
+
+
+
+
+
+

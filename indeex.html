@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Small Library</title>
+    <link rel="Stylesheet" href="Stylesheets/style.css" >
+</head>
+<body>
+    <header>
+        <h2>Library</h2>
+    </header>
+
+    <main>
+        <div class="container" id="container"></div>
+        <button type="button" id="addToLibrary">Add to Library</button>
+
+        <form id="form">
+            <head>
+                <button type="reset" id="exitBtn">X</button>
+                <h3>Add a Book!</h3>
+           </head> 
+
+            <label for="titleInput">Title</label>
+            <input type="text" id="titleInput">
+
+            <label for="authorInput">Author</label>
+            <input type="text" id="authorInput">
+
+            <label for="pageInput">Page Count</label>
+            <input type="number" id="pageInput">
+
+            <label for="readInput">Have you read this book?</label>
+            <button type="button" value="yes" id="readInput">yes</button>
+
+            <button type="submit" id="addBtn">Add Book</button>
+        </form>
+        
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
