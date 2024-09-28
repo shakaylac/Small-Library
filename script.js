@@ -13,23 +13,38 @@ function book (title, author, page, read) {
     this.author = author;
     this.page = page;
     this.read = read;
-    this.addBook = function() {
-        Library.push(this);
-        container.textContent = JSON.stringify(Library);
-    }
 }
 
 
-function makeBook() {
-    const title = document.getElementById(titleInput).value;
-    const author = document.getElementById(authorInput).value;
-    const page = document.getElementById(pageInput).value;
-    const read = document.getElementById(readInput).value;
+function makeBook(event) {
+    event.preventDefault();
+
+    const title = document.getElementById("titleInput").value;
+    const author = document.getElementById("authorInput").value;
+    const page = document.getElementById("pageInput").value;
+    const read = document.getElementById("readInput").value;
+
 
     const newBook = new book (title, author, page, read);
 
-    newBook.addBook();
+    Library.push(newBook);
+
+    displayLibrary();
 }
+
+
+function displayLibrary() {
+    container.textContent = "";
+
+    Library.forEach(book => {
+        const bookInfo = `Title: ${book.title}, Author: ${book.author}, Pages: ${book.page}, Read: ${book.read}`;
+        const bookElemnt = document.createElement("p");
+        bookElemnt.textContent = bookInfo;
+        container.appendChild(bookElemnt);
+});
+
+}
+
 
 function showForm() {
     form.style.display = "block";
@@ -41,3 +56,4 @@ function hideForm() {
 
 addToLibrary.addEventListener('click', showForm);
 exitBtn.addEventListener('click', hideForm);
+addBtn.addEventListener('click', makeBook);
