@@ -30,6 +30,8 @@ function makeBook(event) {
     Library.push(newBook);
 
     displayLibrary();
+
+    hideForm();
 }
 
 
@@ -37,10 +39,30 @@ function displayLibrary() {
     container.textContent = "";
 
     Library.forEach(book => {
+        const bookContainer = document.createElement("div");
+        bookContainer.classList.add("book-con");
+
         const bookInfo = `Title: ${book.title}, Author: ${book.author}, Pages: ${book.page}, Read: ${book.read}`;
-        const bookElemnt = document.createElement("p");
-        bookElemnt.textContent = bookInfo;
-        container.appendChild(bookElemnt);
+        const bookElement = document.createElement("p");
+        bookElement.textContent = bookInfo;
+
+        const deleteBookBtn = document.createElement("button");
+        deleteBookBtn.textContent = "X";
+        deleteBookBtn.classList.add("deleteBookBtn");
+        deleteBookBtn.addEventListener("click", deleteBook);
+
+        function deleteBook() {
+            const index = Library.indexOf(book);
+            
+            Library.splice(index, 1);
+
+            bookContainer.remove();
+         }
+
+        
+        container.appendChild(bookContainer);
+        bookContainer.appendChild(bookElement);
+        bookContainer.appendChild(deleteBookBtn);
 });
 
 }

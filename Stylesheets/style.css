@@ -27,6 +27,25 @@ form {
 }
 
 
+.deleteBookBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    font-size: 17px;
+    border: none;
+    background-color: lightgrey;
+}
+
+.book-con {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    justify-content: start;
+    align-items: center;
+
+}
+
 
 
 
