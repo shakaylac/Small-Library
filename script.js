@@ -29,6 +29,8 @@ function makeBook(event) {
 
     Library.push(newBook);
 
+    clearInputs();
+
     displayLibrary();
 
     hideForm();
@@ -38,9 +40,12 @@ function makeBook(event) {
 function displayLibrary() {
     container.textContent = "";
 
-    Library.forEach(book => {
+    Library.forEach((book, index) => {
         const bookContainer = document.createElement("div");
         bookContainer.classList.add("book-con");
+
+        bookContainer.setAttribute("data-index", index);
+    
 
         const bookInfo = `Title: ${book.title}, Author: ${book.author}, Pages: ${book.page}, Read: ${book.read}`;
         const bookElement = document.createElement("p");
@@ -49,15 +54,14 @@ function displayLibrary() {
         const deleteBookBtn = document.createElement("button");
         deleteBookBtn.textContent = "X";
         deleteBookBtn.classList.add("deleteBookBtn");
-        deleteBookBtn.addEventListener("click", deleteBook);
 
-        function deleteBook() {
-            const index = Library.indexOf(book);
-            
+        deleteBookBtn.book = book;
+
+        deleteBookBtn.addEventListener("click", function() {
             Library.splice(index, 1);
 
-            bookContainer.remove();
-         }
+            this.parentElement.remove();
+        });
 
         
         container.appendChild(bookContainer);
@@ -75,6 +79,14 @@ function showForm() {
 function hideForm() {
     form.style.display = "none";
 }
+
+function clearInputs() {
+    document.getElementById("titleInput").value = "";
+    document.getElementById("authorInput").value = "";
+    document.getElementById("pageInput").value = "";
+    document.getElementById("readInput").value = "";
+}
+
 
 addToLibrary.addEventListener('click', showForm);
 exitBtn.addEventListener('click', hideForm);
