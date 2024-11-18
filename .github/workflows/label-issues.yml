@@ -11,7 +11,7 @@ jobs:
         issues: write
   steps:
     name: label issues
-    uses: andymckay/labeler@1.0.2
+    uses: andymckay/labeler@1.0.4
     with:
       add labels: "triage"
       repos-token: ${{secrets.GITHUB_TOKEN}}
