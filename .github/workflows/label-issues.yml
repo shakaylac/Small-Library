@@ -5,13 +5,13 @@ on:
       -repoened
       -opened
 jobs:
- label-issues:
-   runs-on: ubuntu-latest
-   permissions:
-     issues: write
-       steps:
-        name: label issues
-        uses: andymckay@1.0.2
-        with:
-          add labels: "triage"
-          repos-token: ${{secrets.GITHUB_TOKEN}}
+  label-issues:
+     runs-on: ubuntu-latest
+     permissions:
+        issues: write
+  steps:
+    name: label issues
+    uses: andymckay/labeler@1.0.2
+    with:
+      add labels: "triage"
+      repos-token: ${{secrets.GITHUB_TOKEN}}
